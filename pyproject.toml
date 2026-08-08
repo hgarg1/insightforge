@@ -1,0 +1,95 @@
+[project]
+name = "insightforge"
+version = "0.1.0"
+description = "A polished Python desktop and browser workspace for Excel analytics."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Harshit Garg", email = "harshit.garg@harshit-garg.com" }]
+maintainers = [{ name = "Harshit Garg", email = "harshit.garg@harshit-garg.com" }]
+keywords = ["analytics", "excel", "flet", "insightforge", "local-first"]
+dependencies = [
+    "argon2-cffi>=25.1.0",
+    "email-validator>=2.3.0",
+    "fastapi[standard]>=0.139.2",
+    "flet==0.86.4",
+    "flet-charts==0.86.4",
+    "flet-desktop==0.86.4",
+    "flet-web==0.86.4",
+    "fastexcel>=0.16.0",
+    "httpx>=0.28.1",
+    "itsdangerous>=2.2.0",
+    "openpyxl>=3.1.5",
+    "plotly>=6.3.0",
+    "polars>=1.42.1",
+    "pyarrow>=21.0.0",
+    "PyJWT>=2.10.1",
+    "python-multipart>=0.0.20",
+    "sqlalchemy>=2.0.51",
+    "uvicorn[standard]>=0.35.0",
+    "xlsxwriter>=3.2.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "flet-cli==0.86.4",
+    "pillow>=11.3.0",
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.1.0",
+    "ruff>=0.12.8",
+]
+
+[project.scripts]
+insightforge = "insightforge.__main__:main"
+insightforge-api = "insightforge.api.server:run"
+
+[project.urls]
+Homepage = "https://harshit-garg.com"
+Support = "mailto:harshit.garg@harshit-garg.com"
+Updates = "https://harshit-garg.com"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]
+
+[tool.flet]
+product = "InsightForge"
+artifact = "InsightForge"
+org = "com.harshitgarg"
+bundle_id = "com.harshitgarg.insightforge"
+company = "Harshit Garg Inc."
+copyright = "Copyright (c) 2026 Harshit Garg. All rights reserved."
+build_number = 1
+
+[tool.flet.app]
+module = "main"
+exclude = [
+    ".env",
+    ".flet",
+    ".git",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".tmp",
+    ".venv",
+    "build",
+    "data",
+    "dist",
+    "installer",
+    "scripts",
+    "tests",
+]
+
+[build-system]
+requires = ["setuptools>=75.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["insightforge*"]

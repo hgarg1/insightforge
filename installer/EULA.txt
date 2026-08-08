@@ -1,0 +1,108 @@
+INSIGHTFORGE END USER LICENSE AGREEMENT
+Version 1.0 - Effective August 8, 2026
+
+IMPORTANT: PLEASE READ THIS AGREEMENT CAREFULLY.
+
+This End User License Agreement ("Agreement") is a legal agreement between you
+("you" or "User") and Harshit Garg Inc. ("Publisher") for InsightForge,
+including its desktop application, installer, documentation, updates, and
+related materials (collectively, the "Software"). By selecting "I accept the
+agreement," installing, copying, or using the Software, you agree to this
+Agreement. If you do not agree, do not install or use the Software.
+
+1. THE LICENSE
+
+Subject to this Agreement, Publisher grants you a worldwide, non-exclusive,
+revocable license to install and use the Software on devices you own or control
+for lawful personal, educational, or internal business purposes. You may make
+reasonable backup copies. This Agreement does not transfer ownership of the
+Software, its branding, or Publisher's intellectual property.
+
+2. OPEN-SOURCE AND THIRD-PARTY SOFTWARE
+
+Some Software components are made available under the MIT License or other
+open-source licenses. Those licenses remain controlling for the components they
+cover, and nothing in this Agreement limits rights granted by them. Third-party
+libraries, runtimes, fonts, and notices remain subject to their respective
+licenses. InsightForge and its visual identity remain trademarks or property of
+their respective owners.
+
+3. YOUR FILES, YOUR WORK
+
+You retain all rights to workbooks, datasets, exports, dashboards, and other
+content you process with the Software ("User Content"). Publisher does not
+claim ownership of User Content. The desktop edition is designed for local-first
+processing; application data is stored in your Windows user profile unless you
+configure an external service. You are responsible for lawful access to User
+Content, backups, retention, security, and any disclosure you choose to make.
+
+4. RESPONSIBLE USE
+
+You will not use the Software to violate applicable law, infringe another
+person's rights, distribute malware, gain unauthorized access, or intentionally
+interfere with systems or networks. You are responsible for reviewing imported
+files and exported results before relying on or sharing them.
+
+5. ANALYTICS ARE DECISION SUPPORT, NOT PROFESSIONAL ADVICE
+
+InsightForge summarizes and visualizes data supplied by you. Results may be
+incomplete, inaccurate, or affected by workbook structure, formulas, missing
+values, transformations, or configuration. The Software does not provide legal,
+medical, tax, accounting, investment, or other regulated professional advice.
+Verify material conclusions with qualified professionals and authoritative
+sources before making high-impact decisions.
+
+6. UPDATES, CHANGES, AND AVAILABILITY
+
+Publisher may provide fixes, upgrades, new features, or revised documentation.
+Updates may change functionality or system requirements and may be governed by
+an updated Agreement presented before installation. Publisher does not promise
+that every feature, format, integration, or operating-system version will remain
+available indefinitely.
+
+7. NO WARRANTY
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE SOFTWARE IS PROVIDED "AS IS" AND
+"AS AVAILABLE," WITH ALL FAULTS AND WITHOUT WARRANTIES OF ANY KIND, EXPRESS,
+IMPLIED, OR STATUTORY, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, ACCURACY, QUIET ENJOYMENT, AND NON-INFRINGEMENT. NOTHING IN
+THIS AGREEMENT EXCLUDES A WARRANTY OR RIGHT THAT CANNOT LAWFULLY BE EXCLUDED.
+
+8. LIMITATION OF LIABILITY
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, PUBLISHER AND ITS CONTRIBUTORS WILL NOT
+BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, CONSEQUENTIAL, OR
+PUNITIVE DAMAGES, OR FOR LOST PROFITS, REVENUE, DATA, GOODWILL, OR BUSINESS
+OPPORTUNITY ARISING FROM THE SOFTWARE. PUBLISHER'S TOTAL LIABILITY FOR ALL
+CLAIMS RELATING TO THE SOFTWARE WILL NOT EXCEED THE GREATER OF THE AMOUNT YOU
+PAID FOR THE SOFTWARE DURING THE TWELVE MONTHS BEFORE THE CLAIM OR US$50. THESE
+LIMITATIONS APPLY EVEN IF A REMEDY FAILS OF ITS ESSENTIAL PURPOSE, EXCEPT WHERE
+APPLICABLE LAW DOES NOT ALLOW THEM.
+
+9. TERMINATION
+
+This Agreement remains effective until terminated. You may terminate it by
+uninstalling the Software and deleting your copies. Your license terminates if
+you materially breach this Agreement and do not cure the breach where a cure is
+required by law. Sections intended by their nature to survive termination,
+including ownership, warranty disclaimers, and liability limitations, survive.
+
+10. GENERAL TERMS
+
+This Agreement and the licenses applicable to open-source components form the
+entire agreement concerning this packaged distribution. If a provision is held
+unenforceable, it will be enforced to the maximum lawful extent and the
+remaining provisions will continue. Failure to enforce a provision is not a
+waiver. You may not assign this Agreement where prohibited by law without
+Publisher's consent. Applicable mandatory consumer protections remain intact.
+
+11. CONTACT
+
+Harshit Garg Inc.
+Harshit Garg
+Email: harshit.garg@harshit-garg.com
+Phone: +1 301-525-7100
+Website: https://harshit-garg.com
+
+BY INSTALLING OR USING INSIGHTFORGE, YOU ACKNOWLEDGE THAT YOU HAVE READ,
+UNDERSTOOD, AND ACCEPTED THIS AGREEMENT.
