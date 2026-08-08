@@ -81,6 +81,7 @@ def test_release_metadata_identifies_the_publisher():
     ]
     assert project["tool"]["flet"]["company"] == "Harshit Garg Inc."
     assert project["tool"]["flet"]["bundle_id"] == "com.harshitgarg.insightforge"
+    assert project["project"]["urls"]["Support"].startswith("https://")
     assert '#define MyAppPublisher "Harshit Garg Inc."' in installer
     assert '#define MyAppSupportPhone "+1 301-525-7100"' in installer
     assert "AppPublisherURL={#MyAppWebsite}" in installer

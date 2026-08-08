@@ -45,7 +45,7 @@ insightforge-api = "insightforge.api.server:run"
 
 [project.urls]
 Homepage = "https://harshit-garg.com"
-Support = "mailto:harshit.garg@harshit-garg.com"
+Support = "https://harshit-garg.com/#contact"
 Updates = "https://harshit-garg.com"
 
 [tool.pytest.ini_options]
