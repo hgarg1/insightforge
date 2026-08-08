@@ -2,13 +2,15 @@
 
 InsightForge is a Python-first Excel analytics workspace with a shared Flet UI for Windows desktop and browser deployments. It provides secure local-first authentication, workbook profiling, visual analysis, saved dashboards, and exportable insights.
 
+Proudly vibe-coded by [Harshit Garg](https://harshit-garg.com/)—an experiment in turning product instinct, rapid iteration, and AI-assisted development into a real, installable desktop app.
+
 ## Publisher
 
 - **Author:** Harshit Garg
 - **Publisher:** Harshit Garg Inc.
 - **Email:** harshit.garg@harshit-garg.com
 - **Phone:** +1 301-525-7100
-- **Website and updates:** https://harshit-garg.com
+- **Website and updates:** [harshit-garg.com](https://harshit-garg.com/)
 - **Copyright:** Copyright (c) 2026 Harshit Garg. All rights reserved.
 
 These public publisher details are embedded in the Windows executable metadata, installer properties, and the Apps & Features uninstall record.
@@ -93,5 +95,19 @@ Release artifacts are written to `dist/`:
 
 - `InsightForge-<version>-Setup.exe`
 - `InsightForge-<version>-Setup.exe.sha256`
+
+### Automated tagged releases
+
+Pushing a stable semantic-version tag automatically builds the Windows installer, preserves it as a workflow artifact, creates a GitHub Release with generated notes, and attaches the installer and SHA-256 checksum:
+
+```powershell
+# First update the version in pyproject.toml, commit it, then:
+git tag v0.2.0
+git push origin v0.2.0
+```
+
+The tag must use `vMAJOR.MINOR.PATCH` and its version must match `project.version` in `pyproject.toml`. Other tags do not publish releases.
+
+Release builds are unsigned unless the repository secrets `WINDOWS_SIGNING_CERTIFICATE_BASE64` and `WINDOWS_SIGNING_CERTIFICATE_PASSWORD` contain an Authenticode PFX certificate and its password. When configured, CI imports the certificate only for the build and removes it afterward.
 
 The unsigned development installer is suitable for local QA. Public distribution should always use Authenticode signing so Windows can verify the publisher and integrity of the executable, installer, and uninstaller.

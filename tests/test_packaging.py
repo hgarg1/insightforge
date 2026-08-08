@@ -98,3 +98,20 @@ def test_release_bundle_excludes_private_development_state():
     assert {".env", ".flet", "data"}.issubset(excludes)
     assert 'Join-Path $appBundle "app\\.flet"' in build_script
     assert "Release bundle contains private development data" in build_script
+
+
+def test_tagged_release_workflow_builds_and_publishes_installer():
+    workflow = (PROJECT_ROOT / ".github" / "workflows" / "release.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert '      - "v*.*.*"' in workflow
+    assert "contents: write" in workflow
+    assert "actions/checkout@v6" in workflow
+    assert "actions/setup-python@v6" in workflow
+    assert "JRSoftware.InnoSetup.7" in workflow
+    assert "Tag version $version does not match pyproject.toml version" in workflow
+    assert "actions/upload-artifact@v7" in workflow
+    assert "gh release create $env:GITHUB_REF_NAME" in workflow
+    assert "--verify-tag" in workflow
+    assert "--generate-notes" in workflow
