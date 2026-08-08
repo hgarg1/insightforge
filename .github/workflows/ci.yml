@@ -44,7 +44,10 @@ jobs:
         run: .\.venv\Scripts\python.exe -m ruff check .
 
       - name: Test
-        run: .\.venv\Scripts\python.exe -m pytest -q --basetemp .tmp\pytest-ci
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force .tmp | Out-Null
+          .\.venv\Scripts\python.exe -m pytest -q --basetemp .tmp\pytest-ci
 
       - name: Validate distributable package
         run: .\.venv\Scripts\python.exe -m pip wheel --no-deps --no-build-isolation . --wheel-dir .tmp\wheel
@@ -62,4 +65,6 @@ jobs:
         run: go install github.com/rhysd/actionlint/cmd/actionlint@v1.7.12
 
       - name: Validate GitHub Actions workflows
-        run: "$(go env GOPATH)/bin/actionlint"
+        run: |
+          actionlint_path="$(go env GOPATH)/bin/actionlint"
+          "$actionlint_path"
