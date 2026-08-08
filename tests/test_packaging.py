@@ -135,7 +135,7 @@ def test_continuous_integration_workflow_covers_quality_gates():
     assert "contents: read" in workflow
     assert "python.exe -m ruff check" in workflow
     assert "python.exe -m pytest" in workflow
-    assert "pip wheel --no-deps --no-build-isolation" in workflow
+    assert "pip wheel --no-deps ." in workflow
     assert "actionlint/cmd/actionlint@v1.7.12" in workflow
 
 

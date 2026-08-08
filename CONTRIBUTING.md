@@ -31,7 +31,7 @@ Development state belongs under ignored local paths such as `data/`, `.flet/`, `
 ```powershell
 python -m ruff check .
 python -m pytest -q --basetemp .tmp\pytest-contributing
-python -m pip wheel --no-deps --no-build-isolation . --wheel-dir .tmp\wheel
+python -m pip wheel --no-deps . --wheel-dir .tmp\wheel
 ```
 
 All required GitHub checks must pass before merge. Maintainers may request changes when a contribution weakens local-data isolation, authentication, packaging integrity, or accessibility.

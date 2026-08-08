@@ -50,7 +50,7 @@ jobs:
           .\.venv\Scripts\python.exe -m pytest -q --basetemp .tmp\pytest-ci
 
       - name: Validate distributable package
-        run: .\.venv\Scripts\python.exe -m pip wheel --no-deps --no-build-isolation . --wheel-dir .tmp\wheel
+        run: .\.venv\Scripts\python.exe -m pip wheel --no-deps . --wheel-dir .tmp\wheel
 
   workflow-lint:
     name: Validate workflows
