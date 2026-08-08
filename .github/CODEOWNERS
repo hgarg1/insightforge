@@ -1,0 +1,5 @@
+* @hgarg1
+
+/.github/ @hgarg1
+/installer/ @hgarg1
+/scripts/build_installer.ps1 @hgarg1

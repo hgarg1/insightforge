@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/hgarg1/insightforge/security/advisories/new
+    about: Report vulnerabilities privately. Do not create a public issue.
+  - name: Publisher website
+    url: https://harshit-garg.com/
+    about: Visit Harshit Garg's website for publisher information and contact options.

@@ -1,0 +1,77 @@
+name: Bug report
+description: Report a reproducible InsightForge problem.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Remove workbook data, passwords, tokens, and other private information before submitting.
+  - type: input
+    id: version
+    attributes:
+      label: InsightForge version
+      description: Use the version shown in the installer or GitHub Release.
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      options:
+        - Installed Windows application
+        - Development desktop application
+        - Browser interface
+        - API
+        - Installer or uninstaller
+        - GitHub release pipeline
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating-system version, Python version when relevant, and display scaling for UI bugs.
+      placeholder: Windows 11 25H2, 150% scaling
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Launch InsightForge
+        2. ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized diagnostics
+      description: Attach screenshots or runtime logs only after removing private data.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched existing issues for duplicates.
+          required: true
+        - label: I removed secrets, workbook contents, and personal data.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true

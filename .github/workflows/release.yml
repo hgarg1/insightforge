@@ -7,6 +7,9 @@ on:
 
 permissions:
   contents: write
+  id-token: write
+  attestations: write
+  artifact-metadata: write
 
 concurrency:
   group: release-${{ github.ref }}
@@ -20,12 +23,12 @@ jobs:
 
     steps:
       - name: Check out tagged source
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: "3.14"
           cache: pip
@@ -114,13 +117,44 @@ jobs:
           CERTIFICATE_THUMBPRINT: ${{ steps.certificate.outputs.thumbprint }}
         run: Remove-Item "Cert:\CurrentUser\My\$env:CERTIFICATE_THUMBPRINT" -Force
 
+      - name: Generate CycloneDX SBOM
+        shell: pwsh
+        env:
+          RELEASE_VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          python -m venv .sbom-venv
+          .\.sbom-venv\Scripts\python.exe -m pip install --upgrade pip
+          .\.sbom-venv\Scripts\python.exe -m pip install .
+          .\.venv\Scripts\cyclonedx-py.exe environment `
+            --output-format JSON `
+            --spec-version 1.6 `
+            --output-reproducible `
+            --pyproject pyproject.toml `
+            --output-file "dist/InsightForge-$env:RELEASE_VERSION.cdx.json" `
+            .\.sbom-venv\Scripts\python.exe
+
+      - name: Attest build provenance
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+        with:
+          subject-path: |
+            dist/InsightForge-${{ steps.release.outputs.version }}-Setup.exe
+            dist/InsightForge-${{ steps.release.outputs.version }}-Setup.exe.sha256
+            dist/InsightForge-${{ steps.release.outputs.version }}.cdx.json
+
+      - name: Attest installer SBOM
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+        with:
+          subject-path: dist/InsightForge-${{ steps.release.outputs.version }}-Setup.exe
+          sbom-path: dist/InsightForge-${{ steps.release.outputs.version }}.cdx.json
+
       - name: Preserve workflow artifacts
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: InsightForge-${{ steps.release.outputs.version }}-Windows
           path: |
             dist/InsightForge-${{ steps.release.outputs.version }}-Setup.exe
             dist/InsightForge-${{ steps.release.outputs.version }}-Setup.exe.sha256
+            dist/InsightForge-${{ steps.release.outputs.version }}.cdx.json
           if-no-files-found: error
           retention-days: 30
 
@@ -133,6 +167,7 @@ jobs:
           gh release create $env:GITHUB_REF_NAME `
             "dist/InsightForge-$env:RELEASE_VERSION-Setup.exe" `
             "dist/InsightForge-$env:RELEASE_VERSION-Setup.exe.sha256" `
+            "dist/InsightForge-$env:RELEASE_VERSION.cdx.json" `
             --verify-tag `
             --generate-notes `
             --title "InsightForge $env:RELEASE_VERSION"
